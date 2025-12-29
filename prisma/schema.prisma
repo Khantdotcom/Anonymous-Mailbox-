@@ -1,0 +1,16 @@
+enum PostCategory{
+    CONFESSIONS
+    TEA
+    WISH
+    NEEDADVICE
+}
+model Post {
+    id String @id @default(cuid())
+    category PostCategory @default(TEA)
+    createdat datetime @default(now())
+}
+
+model User{
+    id String @id @default(cuid())
+
+}
