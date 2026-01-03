@@ -4,13 +4,32 @@ enum PostCategory{
     WISH
     NEEDADVICE
 }
-model Post {
-    id String @id @default(cuid())
-    category PostCategory @default(TEA)
-    createdat datetime @default(now())
+
+enum Role{
+    ADMIN
+    USER
 }
 
 model User{
     id String @id @default(cuid())
-    nickname String 
+    nickname String?
+    role Role @default(USER)
+    email String @unique
+    image String?
+
+    posts Post[]
+}
+
+
+model Post {
+    id String @id @default(cuid())
+    title String
+
+    category PostCategory @default(TEA)
+    createdat Datetime @default(now())
+
+    facebookurl String?
+
+    author User @relation(fields:[authorId], references:[id])
+    authorId String
 }
