@@ -12,5 +12,5 @@ model Post {
 
 model User{
     id String @id @default(cuid())
-
+    nickname String 
 }
