@@ -23,7 +23,6 @@ model User{
 
 model Post {
     id String @id @default(cuid())
-    title String
 
     category PostCategory @default(TEA)
     createdat Datetime @default(now())
